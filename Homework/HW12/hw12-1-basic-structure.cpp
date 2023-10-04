@@ -48,8 +48,8 @@ struct Person {
     float Score;
 };
 
-void printPersonInfo(struct Person person) {
-    printf("--| Person Information |--\n");
+void printPersonInfo(struct Person person, char personName) {
+    printf("--| Person %c Information |--\n", personName);
     printf("Name : %s (%c)\n", person.Name, person.Sex);
     printf("Age : %d years old\n", person.Age);
     printf("Score : %.2f points\n", person.Score);
@@ -81,9 +81,9 @@ int main() {
     scanf("%f", &B.Score);
 
     // Display information for both persons
-    printPersonInfo(A);
+    printPersonInfo(A, 'A');
     printf("\n");
-    printPersonInfo(B);
+    printPersonInfo(B, 'B');
 
     return 0;
 }
