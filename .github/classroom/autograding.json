@@ -1,0 +1,14 @@
+{
+  "tests": [
+    {
+      "name": "Set 1",
+      "setup": "g++ -o a.out ./Homework/HW12/hw12-1-basic-structure.cpp",
+      "run": "./a.out",
+      "input": "Mai\r\n24\r\nM\r\n99.99\r\nMon\r\n21\r\nF\r\n87.60\r\n",
+      "output": "--| Person A Information |--\r\nName : Mai (M)\r\nAge : 24 years old\r\nScore : 99.99 points\r\n--| Person B Information |--\r\nName : Mon (F)\r\nAge : 21 years old\r\nScore : 87.60 points",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    }
+  ]
+}
