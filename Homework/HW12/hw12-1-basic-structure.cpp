@@ -42,48 +42,42 @@
 */#include <stdio.h>
 
 struct Person {
-    char Name[20];
+    char Name[50];
     int Age;
     char Sex;
     float Score;
 };
 
-void printPersonInfo(struct Person person, char personName) {
+void inputPersonInfo(struct Person* person, char personName) {
     printf("--| Person %c Information |--\n", personName);
-    printf("Name : %s (%c)\n", person.Name, person.Sex);
-    printf("Age : %d years old\n", person.Age);
-    printf("Score : %.2f points\n", person.Score);
+    printf("Name : ");
+    scanf("%s", person->Name);
+    printf("Sex (M/F) : ");
+    scanf(" %c", &person->Sex);
+    printf("Age : ");
+    scanf("%d", &person->Age);
+    printf("Score : ");
+    scanf("%f", &person->Score);
+}
+
+void printPersonInfo(const struct Person* person, char personName) {
+    printf("--| Person %c Information |--\n", personName);
+    printf("Name : %s (%c)\n", person->Name, person->Sex);
+    printf("Age : %d years old\n", person->Age);
+    printf("Score : %.2f points\n", person->Score);
 }
 
 int main() {
     struct Person A, B;
 
-    // Input data for Person A
-    printf("Person A\n");
-    printf("Name : ");
-    scanf("%s", A.Name);
-    printf("Age : ");
-    scanf("%d", &A.Age);
-    printf("Sex (M/F) : ");
-    scanf(" %c", &A.Sex);
-    printf("Score : ");
-    scanf("%f", &A.Score);
+    for (char personName = 'A'; personName <= 'B'; personName++) {
+        inputPersonInfo(personName == 'A' ? &A : &B, personName);
+        printf("\n");
+    }
 
-    // Input data for Person B
-    printf("\nPerson B\n");
-    printf("Name : ");
-    scanf("%s", B.Name);
-    printf("Age : ");
-    scanf("%d", &B.Age);
-    printf("Sex (M/F) : ");
-    scanf(" %c", &B.Sex);
-    printf("Score : ");
-    scanf("%f", &B.Score);
-
-    // Display information for both persons
-    printPersonInfo(A, 'A');
+    printPersonInfo(&A, 'A');
     printf("\n");
-    printPersonInfo(B, 'B');
+    printPersonInfo(&B, 'B');
 
     return 0;
 }
