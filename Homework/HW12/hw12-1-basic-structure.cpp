@@ -52,10 +52,10 @@ void inputPersonInfo(struct Person* person, char personName) {
     printf("--| Person %c Information |--\n", personName);
     printf("Name : ");
     scanf("%s", person->Name);
-    printf("Sex (M/F) : ");
-    scanf(" %c", &person->Sex);
     printf("Age : ");
     scanf("%d", &person->Age);
+    printf("Sex (M/F) : ");
+    scanf(" %c", &person->Sex);
     printf("Score : ");
     scanf("%f", &person->Score);
 }
@@ -64,7 +64,7 @@ void printPersonInfo(const struct Person* person, char personName) {
     printf("--| Person %c Information |--\n", personName);
     printf("Name : %s (%c)\n", person->Name, person->Sex);
     printf("Age : %d years old\n", person->Age);
-    printf("Score : %.2f points\n", person->Score);
+    printf("Score : %.2f points", person->Score);
 }
 
 int main() {
