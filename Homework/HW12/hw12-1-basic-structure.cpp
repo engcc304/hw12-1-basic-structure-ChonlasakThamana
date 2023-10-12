@@ -39,4 +39,45 @@
         Age : 21 years old
         Score : 87.60 points
 
-*/
+*/#include <stdio.h>
+
+struct Person {
+    char Name[50];
+    int Age;
+    char Sex;
+    float Score;
+};
+
+void inputPersonInfo(struct Person* person, char personName) {
+    printf("--| Person %c Information |--\n", personName);
+    printf("Name : ");
+    scanf("%s", person->Name);
+    printf("Age : ");
+    scanf("%d", &person->Age);
+    printf("Sex (M/F) : ");
+    scanf(" %c", &person->Sex);
+    printf("Score : ");
+    scanf("%f", &person->Score);
+}
+
+void printPersonInfo(const struct Person* person, char personName) {
+    printf("--| Person %c Information |--\n", personName);
+    printf("Name : %s (%c)\n", person->Name, person->Sex);
+    printf("Age : %d years old\n", person->Age);
+    printf("Score : %.2f points", person->Score);
+}
+
+int main() {
+    struct Person A, B;
+
+    for (char personName = 'A'; personName <= 'B'; personName++) {
+        inputPersonInfo(personName == 'A' ? &A : &B, personName);
+        printf("\n");
+    }
+
+    printPersonInfo(&A, 'A');
+    printf("\n");
+    printPersonInfo(&B, 'B');
+
+    return 0;
+}
